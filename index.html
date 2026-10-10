@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#dff3ff">
+<meta name="description" content="Donia Haroun | Web Designer. اكتشفي أعمال دنيا في تصميم وتطوير المواقع.">
+<title>Donia Haroun | Creative Web Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f5fbff;
+  --blue: #70bfff;
+  --blue-dark: #237bc0;
+  --blue-light: #dff3ff;
+  --white: #ffffff;
+  --text: #18344b;
+  --muted: #6e8496;
+  --border: #dceefa;
+  --shadow: 0 18px 50px rgba(53, 133, 190, .12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cairo', sans-serif;
+  overflow-x: hidden;
+}
+
+body.en { font-family: 'Poppins', sans-serif; }
+
+a { text-decoration: none; color: inherit; }
+
+button { font: inherit; cursor: pointer; }
+
+.container {
+  width: min(1120px, 91%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,251,255,.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(220,238,250,.8);
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--blue-dark); }
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.nav-links a:hover { color: var(--blue-dark); }
+
+.nav-actions {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.lang-btn {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 8px 13px;
+  border-radius: 12px;
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.hero {
+  min-height: 610px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 60px;
+  padding-top: 55px;
+  padding-bottom: 70px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--blue-light);
+  color: var(--blue-dark);
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 23px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #39bd8c;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(57,189,140,.13);
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5.5vw, 67px);
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.hero h1 .highlight {
+  color: var(--blue-dark);
+  display: block;
+}
+
+.hero-description {
+  max-width: 520px;
+  margin-top: 22px;
+  line-height: 2;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 29px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 23px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .25s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-primary {
+  background: var(--blue-dark);
+  color: white;
+  box-shadow: 0 10px 25px rgba(35,123,192,.2);
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.hero-note {
+  margin-top: 25px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.photo-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.photo-glow {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #d6efff, #8ecbff);
+  filter: blur(2px);
+}
+
+.photo-frame {
+  position: relative;
+  z-index: 2;
+  width: min(300px, 80vw);
+  height: 365px;
+  padding: 10px;
+  border-radius: 145px 145px 35px 35px;
+  background: white;
+  box-shadow: 0 25px 65px rgba(46,127,183,.19);
+  transform: rotate(2deg);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 135px 135px 27px 27px;
+  border: 2px dashed #9bcff2;
+  background: linear-gradient(155deg, #f6fcff, #dff3ff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 13px;
+  padding: 20px;
+}
+
+.photo-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+  font-size: 33px;
+  box-shadow: 0 8px 25px rgba(53,133,190,.12);
+}
+
+.photo-placeholder strong {
+  font-size: 15px;
+  color: var(--blue-dark);
+}
+
+.photo-placeholder small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.floating-tag {
+  position: absolute;
+  z-index: 3;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tag-one { top: 50px; right: -5px; }
+.tag-two { bottom: 45px; left: -5px; }
+
+.section {
+  padding: 85px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 43px;
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--blue-dark);
+  background: var(--blue-light);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+}
+
+.section-heading p {
+  margin: 12px auto 0;
+  max-width: 540px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.projects-section {
+  background: #edf8ff;
+  border-top: 1px solid #e3f2fc;
+  border-bottom: 1px solid #e3f2fc;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(53,133,190,.055);
+  transition: .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.project-cover {
+  min-height: 225px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-cover::before,
+.project-cover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.project-cover::before {
+  width: 260px;
+  height: 260px;
+  right: -65px;
+  top: -115px;
+}
+
+.project-cover::after {
+  width: 190px;
+  height: 190px;
+  left: -60px;
+  bottom: -105px;
+}
+
+.cover-noir {
+  background: linear-gradient(135deg, #171717, #59402e);
+  color: #f5d7a1;
+}
+
+.cover-wika {
+  background: linear-gradient(135deg, #ffe7f0, #f5b8d2);
+  color: #8b365c;
+}
+
+.cover-karam {
+  background: linear-gradient(135deg, #e23d2b, #8e151b);
+  color: white;
+}
+
+.cover-chrono {
+  background: linear-gradient(135deg, #101e30, #263f57);
+  color: #e3c88d;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.cover-icon {
+  display: block;
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.cover-content h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.cover-content p {
+  font-size: 11px;
+  opacity: .85;
+  margin-top: 7px;
+}
+
+.project-info { padding: 23px; }
+
+.project-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.project-info h3 {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.project-type {
+  display: inline-block;
+  background: #edf8ff;
+  color: var(--blue-dark);
+  padding: 5px 10px;
+  border-radius: 9px;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 12px 0 18px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f9ff;
+  border: 1px solid #e3f2fc;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--blue-dark);
+  transition: .2s;
+}
+
+.project-link:hover {
+  background: var(--blue-dark);
+  color: white;
+}
+
+.contact-box {
+  background: linear-gradient(135deg, #dff3ff, #f5fbff);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 45px 25px;
+  text-align: center;
+}
+
+.contact-box h2 {
+  font-size: clamp(25px, 4vw, 39px);
+  font-weight: 900;
+}
+
+.contact-box p {
+  max-width: 540px;
+  margin: 13px auto 25px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contact-link {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.contact-link:hover {
+  color: var(--blue-dark);
+  transform: translateY(-3px);
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+footer span { color: var(--blue-dark); font-weight: 800; }
+
+.en .hero-description,
+.en .hero-note { line-height: 1.9; }
+
+.en .project-info p { line-height: 1.8; }
+
+.en .nav-links { direction: ltr; }
+
+.en .hero { direction: ltr; }
+
+.en .projects-grid { direction: ltr; }
+
+.en .project-title-row { direction: ltr; }
+
+.en .project-link { direction: ltr; }
+
+.en .tag-one { right: auto; left: -5px; }
+
+.en .tag-two { left: auto; right: -5px; }
+
+.en .photo-frame { transform: rotate(-2deg); }
+
+@media (max-width: 800px) {
+  .nav { min-height: 70px; }
+  .nav-links { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+    padding-top: 48px;
+  }
+  .hero-description { margin-right: auto; margin-left: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero h1 { font-size: clamp(38px, 9vw, 58px); }
+  .photo-area { min-height: 380px; }
+  .section { padding: 65px 0; }
+  .projects-grid { gap: 16px; }
+  .project-cover { min-height: 180px; }
+  .project-info { padding: 17px; }
+  .project-title-row { flex-direction: column; }
+  .project-info h3 { font-size: 16px; }
+  .project-type { white-space: normal; }
+}
+
+@media (max-width: 520px) {
+  .logo { font-size: 19px; }
+  .hero { min-height: auto; }
+  .photo-area { min-height: 350px; }
+  .photo-frame { height: 330px; width: 265px; }
+  .photo-glow { width: 255px; height: 255px; }
+  .tag-one { top: 35px; }
+  .tag-two { bottom: 25px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-cover { min-height: 210px; }
+  .project-title-row { flex-direction: row; }
+  .contact-box { padding: 35px 18px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">Donia<span>.</span></a>
+
+    <nav class="nav-links">
+      <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="#projects" data-ar="أعمالي" data-en="Projects">أعمالي</a>
+      <a href="#contact" data-ar="تواصلي معي" data-en="Contact">تواصلي معي</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" type="button">EN / AR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="container hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span data-ar="مصممة مواقع ويب" data-en="Web Designer & Creator">مصممة مواقع ويب</span>
+      </div>
+
+      <h1>
+        <span data-ar="أهلًا، أنا" data-en="Hello, I'm">أهلًا، أنا</span>
+        <span class="highlight">Donia Haroun</span>
+      </h1>
+
+      <p class="hero-description"
+         data-ar="بحب أحوّل الأفكار لتجارب رقمية مميزة. بصمم مواقع عصرية تجمع بين الجمال، البساطة وسهولة الاستخدام، وكل مشروع عندي هو فرصة أتعلم وأبدع أكتر."
+         data-en="I love turning ideas into memorable digital experiences. I create modern websites that combine beauty, simplicity and usability. Every project is a new chance to learn and create.">
+        بحب أحوّل الأفكار لتجارب رقمية مميزة. بصمم مواقع عصرية تجمع بين الجمال، البساطة وسهولة الاستخدام، وكل مشروع عندي هو فرصة أتعلم وأبدع أكتر.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">
+          <span data-ar="اكتشفي أعمالي" data-en="Explore My Work">اكتشفي أعمالي</span>
+          <span>↗</span>
+        </a>
+        <a class="btn btn-secondary" href="https://wa.me/201141654852" target="_blank" rel="noopener">
+          <span data-ar="تواصلي معي" data-en="Let's Talk">تواصلي معي</span>
+          <span>♡</span>
+        </a>
+      </div>
+
+      <p class="hero-note"
+         data-ar="✦ الإبداع يبدأ بفكرة، والتميز يبدأ بخطوة."
+         data-en="✦ Creativity starts with an idea. Excellence starts with a step.">
+        ✦ الإبداع يبدأ بفكرة، والتميز يبدأ بخطوة.
+      </p>
+    </div>
+
+    <div class="photo-area">
+      <div class="photo-glow"></div>
+
+      <div class="photo-frame">
+        <!-- ضعي صورتك هنا لاحقًا بدل مكان الصورة الفاضي -->
+        <!-- مثال: <img src="my-photo.jpg" alt="Donia Haroun"> -->
+        <img src="./my-photo.jpg"
+     alt="Donia Haroun"
+     style="width:100%;height:100%;object-fit:cover;
+     border-radius:135px 135px 27px 27px;">
+          <div class="photo-icon">📸</div>
+          <strong data-ar="مساحة صورتك الشخصية" data-en="Your Portrait Goes Here">مساحة صورتك الشخصية</strong>
+          <small data-ar="مكان مميز لصورتك ✨<br>أضيفي صورتك داخل هذا الإطار لاحقًا"
+                 data-en="Your special photo space ✨<br>Add your picture inside this frame later">
+            مكان مميز لصورتك ✨<br>أضيفي صورتك داخل هذا الإطار لاحقًا
+          </small>
+        </>
+      </div>
+
+      <div class="floating-tag tag-one"
+           data-ar="✦ أحلام كبيرة"
+           data-en="✦ Big Dreams">✦ أحلام كبيرة</div>
+
+      <div class="floating-tag tag-two"
+           data-ar="♡ إبداع مستمر"
+           data-en="♡ Always Creating">♡ إبداع مستمر</div>
+    </div>
+  </section>
+
+  <section class="projects-section section" id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label"
+              data-ar="معرض أعمالي"
+              data-en="MY PORTFOLIO">معرض أعمالي</span>
+        <h2 data-ar="مشاريعي المميزة ✦" data-en="Selected Projects ✦">مشاريعي المميزة ✦</h2>
+        <p data-ar="مجموعة من المواقع اللي اشتغلت عليها، وكل موقع له هويته وتصميمه الخاص."
+           data-en="A collection of websites I've worked on, each with its own identity and design.">
+          مجموعة من المواقع اللي اشتغلت عليها، وكل موقع له هويته وتصميمه الخاص.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: NOIR CAFÉ -->
+        <article class="project-card">
+          <div class="project-cover cover-noir">
+            <div class="cover-content">
+              <span class="cover-icon">☕</span>
+              <h3>NOIR CAFÉ</h3>
+              <p>COFFEE • MOOD • MOMENTS</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-title-row">
+              <h3>NOIR CAFÉ</h3>
+              <span class="project-type"
+                    data-ar="موقع كافيه" data-en="Café Website">موقع كافيه</span>
+            </div>
+            <p data-ar="تجربة إلكترونية بطابع أنيق لعشاق القهوة، بهوية بصرية دافئة وتصميم عصري."
+               data-en="An elegant digital experience for coffee lovers, with a warm visual identity and modern design.">
+              تجربة إلكترونية بطابع أنيق لعشاق القهوة، بهوية بصرية دافئة وتصميم عصري.
+            </p>
+            <a class="project-link" href="https://doniaharoun91-cmyk.github.io/my-coffee-/" target="_blank" rel="noopener">
+              <span data-ar="زيارة الموقع" data-en="Visit Website">زيارة الموقع</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: WIKA ACCESSORIES -->
+        <article class="project-card">
+          <div class="project-cover cover-wika">
+            <div class="cover-content">
+              <span class="cover-icon">✧</span>
+              <h3>WIKA</h3>
+              <p>ACCESSORIES • YOUR STYLE</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-title-row">
+              <h3>WIKA ACCESSORIES</h3>
+              <span class="project-type"
+                    data-ar="متجر إكسسوارات" data-en="Accessories Store">متجر إكسسوارات</span>
+            </div>
+            <p data-ar="متجر إكسسوارات بتصميم أنثوي مميز، لعرض القطع وتسهيل استكشاف المنتجات والطلب."
+               data-en="A stylish accessories store designed to showcase products and make browsing and ordering easy.">
+              متجر إكسسوارات بتصميم أنثوي مميز، لعرض القطع وتسهيل استكشاف المنتجات والطلب.
+            </p>
+            <a class="project-link" href="https://doniaharoun91-cmyk.github.io/-wikaaccessories/" target="_blank" rel="noopener">
+              <span data-ar="زيارة الموقع" data-en="Visit Website">زيارة الموقع</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3: KARAM EL SHAM SHAWARMA -->
+        <article class="project-card">
+          <div class="project-cover cover-karam">
+            <div class="cover-content">
+              <span class="cover-icon">🌯</span>
+              <h3>KARAM EL SHAM</h3>
+              <p>SHAWARMA • FLAVOR • QUALITY</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-title-row">
+              <h3 data-ar="شاورما كرم الشام" data-en="Karam El Sham Shawarma">شاورما كرم الشام</h3>
+              <span class="project-type"
+                    data-ar="موقع مطعم" data-en="Restaurant Website">موقع مطعم</span>
+            </div>
+            <p data-ar="موقع للمطعم يعرض هويته وأجواءه، بتصميم لافت يناسب تجربة الطعام."
+               data-en="A restaurant website showcasing its identity and atmosphere with a bold, food-inspired design.">
+              موقع للمطعم يعرض هويته وأجواءه، بتصميم لافت يناسب تجربة الطعام.
+            </p>
+            <a class="project-link" href="https://doniaharoun91-cmyk.github.io/LAVORA/" target="_blank" rel="noopener">
+              <span data-ar="زيارة الموقع" data-en="Visit Website">زيارة الموقع</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4: CHRONOLUX -->
+        <article class="project-card">
+          <div class="project-cover cover-chrono">
+            <div class="cover-content">
+              <span class="cover-icon">⌚</span>
+              <h3>CHRONOLUX</h3>
+              <p>TIMELESS LUXURY</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-title-row">
+              <h3>CHRONOLUX</h3>
+              <span class="project-type"
+                    data-ar="موقع ساعات" data-en="Luxury Watches">موقع ساعات</span>
+            </div>
+            <p data-ar="واجهة فاخرة مستوحاة من عالم الساعات، تجمع بين الأناقة والتفاصيل الراقية."
+               data-en="A luxury-inspired watch website combining elegance with refined visual details.">
+              واجهة فاخرة مستوحاة من عالم الساعات، تجمع بين الأناقة والتفاصيل الراقية.
+            </p>
+            <a class="project-link" href="https://doniaharoun91-cmyk.github.io/chronolux-luxury-watch-/" target="_blank" rel="noopener">
+              <span data-ar="زيارة الموقع" data-en="Visit Website">زيارة الموقع</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <span class="section-label"
+              data-ar="خلينا نتواصل"
+              data-en="LET'S CONNECT">خلينا نتواصل</span>
+
+        <h2 data-ar="عندك فكرة؟ خلينا ننفذها ✨"
+            data-en="Have an Idea? Let's Build It ✨">
+          عندك فكرة؟ خلينا ننفذها ✨
+        </h2>
+
+        <p data-ar="لو محتاج موقع لمشروعك أو عندك فكرة حابة تتحول لواقع، يسعدني نتكلم ونبدأ."
+           data-en="Need a website for your business or have an idea you'd love to bring to life? Let's talk.">
+          لو محتاج موقع لمشروعك أو عندك فكرة حابة تتحول لواقع، يسعدني نتكلم ونبدأ.
+        </p>
+
+        <div class="contact-links">
+          <a class="contact-link" href="https://wa.me/201141654852" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a class="contact-link" href="https://instagram.com/donia__cs" target="_blank" rel="noopener">
+            📷 Instagram
+          </a>
+          <a class="contact-link" href="mailto:doniaharoun91@gamil.com">
+            ✉️ Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>Donia Haroun</span> —
+    <span data-ar="صُنع بشغف ♡" data-en="Made with passion ♡">صُنع بشغف ♡</span>
+    <span id="year"></span>
+  </div>
+</footer>
+
+<script>
+const langBtn = document.getElementById("langBtn");
+let currentLang = "ar";
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.body.classList.toggle("en", lang === "en");
+
+  document.querySelectorAll("[data-ar][data-en]").forEach(element => {
+    element.innerHTML = element.dataset[lang];
+  });
+
+  langBtn.textContent = lang === "ar" ? "EN / AR" : "AR / EN";
+}
+
+langBtn.addEventListener("click", () => {
+  setLanguage(currentLang === "ar" ? "en" : "ar");
+});
+
+document.getElementById("year").textContent = " © " + new Date().getFullYear();
+</script>
+</body>
+</html>
